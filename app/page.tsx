@@ -1,7 +1,8 @@
 "use client";
 
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "../src/lib/firebase";
+
 
 export default function Home() {
   const salvar = async () => {
