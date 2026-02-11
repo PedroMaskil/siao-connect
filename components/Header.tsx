@@ -1,48 +1,44 @@
 "use client";
 
 import { useState } from "react";
+import { Menu } from "lucide-react";
+import MobileMenu from "@/components/MobileMenu";
 
-export default function Navbar() {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-orange-50 border-b border-orange-200">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-
-        {/* Logo */}
-        <h1 className="text-xl font-bold text-orange-600">
+    <>
+      <header className="flex items-center justify-between px-6 py-4">
+        <span className="text-xl font-bold text-orange-600">
           Sião Connect
-        </h1>
+        </span>
 
-        {/* Menu Desktop */}
-        <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
+        {/* Desktop menu */}
+        <nav className="hidden md:flex gap-6">
           <a href="#">Criar Evento</a>
           <a href="#">Meus Eventos</a>
           <a href="#">Meus Ingressos</a>
-          <a href="#">Acesse sua conta</a>
+          <a href="#" className="font-semibold text-orange-600">
+            Acesse sua conta
+          </a>
         </nav>
 
-        {/* Botão Hambúrguer (Mobile) */}
+        {/* Mobile botão */}
         <button
-          className="md:hidden text-orange-600 text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden"
+          onClick={() => setMenuOpen(true)}
           aria-label="Abrir menu"
         >
-          ☰
+          <Menu size={28} />
         </button>
-      </div>
+      </header>
 
-      {/* Menu Mobile */}
-      {menuOpen && (
-        <div className="md:hidden bg-orange-100 border-t border-orange-200">
-          <nav className="flex flex-col gap-4 p-4 text-gray-700 font-medium">
-            <a href="#" onClick={() => setMenuOpen(false)}>Criar Evento</a>
-            <a href="#" onClick={() => setMenuOpen(false)}>Meus Eventos</a>
-            <a href="#" onClick={() => setMenuOpen(false)}>Meus Ingressos</a>
-            <a href="#" onClick={() => setMenuOpen(false)}>Acesse sua conta</a>
-          </nav>
-        </div>
-      )}
-    </header>
+      {/* Menu mobile overlay */}
+      <MobileMenu
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+      />
+    </>
   );
 }
