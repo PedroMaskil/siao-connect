@@ -1,39 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import MobileMenu from "./MobileMenu";
 
-/**
- * Header principal da aplicação
- * - Logo
- * - Navegação desktop
- * - Menu hambúrguer no mobile
- */
-export default function Header() {
-  const [open, setOpen] = useState(false);
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full border-b border-orange-200/60 bg-[#fffaf5]">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className="w-full bg-orange-50 border-b border-orange-200">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+
         {/* Logo */}
-        <h1 className="text-2xl font-semibold tracking-wide text-orange-500">
+        <h1 className="text-xl font-bold text-orange-600">
           Sião Connect
         </h1>
 
         {/* Menu Desktop */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium">
-          <a className="hover:text-orange-500 transition">Criar Evento</a>
-          <a className="hover:text-orange-500 transition">Meus Eventos</a>
-          <a className="hover:text-orange-500 transition">Meus Ingressos</a>
-          <a className="px-4 py-2 rounded-full border border-orange-300 text-orange-500 hover:bg-orange-50 transition">
-            Acesse sua conta
-          </a>
+        <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
+          <a href="#">Criar Evento</a>
+          <a href="#">Meus Eventos</a>
+          <a href="#">Meus Ingressos</a>
+          <a href="#">Acesse sua conta</a>
         </nav>
 
-        {/* Botão Hambúrguer */}
+        {/* Botão Hambúrguer (Mobile) */}
         <button
-          onClick={() => setOpen(true)}
-          className="md:hidden text-orange-500 text-2xl"
+          className="md:hidden text-orange-600 text-2xl"
+          onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Abrir menu"
         >
           ☰
@@ -41,7 +33,16 @@ export default function Header() {
       </div>
 
       {/* Menu Mobile */}
-      <MobileMenu open={open} onClose={() => setOpen(false)} />
+      {menuOpen && (
+        <div className="md:hidden bg-orange-100 border-t border-orange-200">
+          <nav className="flex flex-col gap-4 p-4 text-gray-700 font-medium">
+            <a href="#" onClick={() => setMenuOpen(false)}>Criar Evento</a>
+            <a href="#" onClick={() => setMenuOpen(false)}>Meus Eventos</a>
+            <a href="#" onClick={() => setMenuOpen(false)}>Meus Ingressos</a>
+            <a href="#" onClick={() => setMenuOpen(false)}>Acesse sua conta</a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
