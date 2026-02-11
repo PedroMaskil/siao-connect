@@ -2,7 +2,7 @@
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0f0f0f] text-white">
+    <div className="min-h-screen text-white">
       {/* NAVBAR */}
       <header className="w-full border-b border-orange-500/20">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
