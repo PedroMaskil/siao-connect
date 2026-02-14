@@ -1,6 +1,3 @@
-
-
-
 "use client";
 
 import { collection, addDoc } from "firebase/firestore";
@@ -16,8 +13,8 @@ export default function Home() {
    */
   const salvarTeste = async () => {
     try {
-      await addDoc(collection(db, "eventos"), {
-        nome: "Evento Teste",
+      await addDoc(collection(db, "Eventos"), {
+        Nome_Evento: "Evento Teste",
         criadoEm: new Date(),
       });
 
