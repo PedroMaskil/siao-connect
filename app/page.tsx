@@ -18,6 +18,9 @@ export default function Home() {
         criadoEm: new Date(),
       });
 
+const salvarTeste = async () => {
+  console.log("Clique detectado");
+};
       alert("Salvo com sucesso 🚀");
     } catch (error) {
       console.error("Erro ao salvar:", error);
