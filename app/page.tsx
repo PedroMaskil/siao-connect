@@ -1,4 +1,4 @@
-Import Header from "@/components/Header";
+import Header from "@/components/Header";
 import SearchBox from "@/components/SearchBox";
 
 /**
