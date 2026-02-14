@@ -12,3 +12,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+console.log("Project ID:", process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
