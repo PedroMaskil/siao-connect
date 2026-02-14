@@ -1,4 +1,6 @@
+import { addDoc, collection } from "firebase/firestore";
 import type { NextConfig } from "next";
+import { db } from "./lib/firebase";
 
 const nextConfig: NextConfig = {
   /* config options here */
